@@ -46,6 +46,7 @@ var VanillaTilt = (function () {
       this.gyroscopeSamples = this.settings.gyroscopeSamples;
   
       this.elementListener = this.getElementListener();
+  
       if (this.glare) {
         this.prepareGlare();
       }
@@ -132,4 +133,213 @@ var VanillaTilt = (function () {
       }
     }
   
-      
+    destroy() {
+      clearTimeout(this.transitionTimeout);
+      if (this.updateCall !== null) {
+        cancelAnimationFrame(this.updateCall);
+      }
+  
+      this.element.style.willChange = "";
+      this.element.style.transition = "";
+      this.element.style.transform = "";
+      this.resetGlare();
+  
+      this.removeEventListeners();
+      this.element.vanillaTilt = null;
+      delete this.element.vanillaTilt;
+  
+      this.element = null;
+    }
+  
+    onDeviceOrientation(event) {
+      if (event.gamma === null || event.beta === null) {
+        return;
+      }
+  
+      this.updateElementPosition();
+  
+      if (this.gyroscopeSamples > 0) {
+        this.lastgammazero = this.gammazero;
+        this.lastbetazero = this.betazero;
+  
+        if (this.gammazero === null) {
+          this.gammazero = event.gamma;
+          this.betazero = event.beta;
+        } else {
+          this.gammazero = (event.gamma + this.lastgammazero) / 2;
+          this.betazero = (event.beta + this.lastbetazero) / 2;
+        }
+  
+        this.gyroscopeSamples -= 1;
+      }
+  
+      const totalAngleX = this.settings.gyroscopeMaxAngleX - this.settings.gyroscopeMinAngleX;
+      const totalAngleY = this.settings.gyroscopeMaxAngleY - this.settings.gyroscopeMinAngleY;
+  
+      const degreesPerPixelX = totalAngleX / this.width;
+      const degreesPerPixelY = totalAngleY / this.height;
+  
+      const angleX = event.gamma - (this.settings.gyroscopeMinAngleX + this.gammazero);
+      const angleY = event.beta - (this.settings.gyroscopeMinAngleY + this.betazero);
+  
+      const posX = angleX / degreesPerPixelX;
+      const posY = angleY / degreesPerPixelY;
+  
+      if (this.updateCall !== null) {
+        cancelAnimationFrame(this.updateCall);
+      }
+  
+      this.event = {
+        clientX: posX + this.left,
+        clientY: posY + this.top,
+      };
+  
+      this.updateCall = requestAnimationFrame(this.updateBind);
+    }
+  
+    onMouseEnter() {
+      this.updateElementPosition();
+      this.element.style.willChange = "transform";
+      this.setTransition();
+    }
+  
+    onMouseMove(event) {
+      if (this.updateCall !== null) {
+        cancelAnimationFrame(this.updateCall);
+      }
+  
+      this.event = event;
+      this.updateCall = requestAnimationFrame(this.updateBind);
+    }
+  
+    onMouseLeave() {
+      this.setTransition();
+  
+      if (this.settings.reset) {
+        requestAnimationFrame(this.resetBind);
+      }
+    }
+  
+    reset() {
+      this.onMouseEnter();
+  
+      if (this.fullPageListening) {
+        this.event = {
+          clientX: (this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.clientWidth,
+          clientY: (this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.clientHeight
+        };
+      } else {
+        this.event = {
+          clientX: this.left + ((this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.width),
+          clientY: this.top + ((this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.height)
+        };
+      }
+  
+      let backupScale = this.settings.scale;
+      this.settings.scale = 1;
+      this.update();
+      this.settings.scale = backupScale;
+      this.resetGlare();
+    }
+  
+    resetGlare() {
+      if (this.glare) {
+        this.glareElement.style.transform = "rotate(180deg) translate(-50%, -50%)";
+        this.glareElement.style.opacity = "0";
+      }
+    }
+  
+    getValues() {
+      let x, y;
+  
+      if (this.fullPageListening) {
+        x = this.event.clientX / this.clientWidth;
+        y = this.event.clientY / this.clientHeight;
+      } else {
+        x = (this.event.clientX - this.left) / this.width;
+        y = (this.event.clientY - this.top) / this.height;
+      }
+  
+      x = Math.min(Math.max(x, 0), 1);
+      y = Math.min(Math.max(y, 0), 1);
+  
+      let tiltX = (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2);
+      let tiltY = (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2);
+      let angle = Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI);
+  
+      return {
+        tiltX: tiltX,
+        tiltY: tiltY,
+        percentageX: x * 100,
+        percentageY: y * 100,
+        angle: angle
+      };
+    }
+  
+    updateElementPosition() {
+      let rect = this.element.getBoundingClientRect();
+  
+      this.width = this.element.offsetWidth;
+      this.height = this.element.offsetHeight;
+      this.left = rect.left;
+      this.top = rect.top;
+    }
+  
+    update() {
+      let values = this.getValues();
+  
+      this.element.style.transform = "perspective(" + this.settings.perspective + "px) " +
+        "rotateX(" + (this.settings.axis === "x" ? 0 : values.tiltY) + "deg) " +
+        "rotateY(" + (this.settings.axis === "y" ? 0 : values.tiltX) + "deg) " +
+        "scale3d(" + this.settings.scale + ", " + this.settings.scale + ", " + this.settings.scale + ")";
+  
+      if (this.glare) {
+        this.glareElement.style.transform = `rotate(${values.angle}deg) translate(-50%, -50%)`;
+        this.glareElement.style.opacity = `${values.percentageY * this.settings["max-glare"] / 100}`;
+      }
+  
+      this.element.dispatchEvent(new CustomEvent("tiltChange", {
+        "detail": values
+      }));
+  
+      this.updateCall = null;
+    }
+  
+    /**
+     * Appends the glare element (if glarePrerender equals false)
+     * and sets the default style
+     */
+    prepareGlare() {
+      // If option pre-render is enabled we assume all html/css is present for an optimal glare effect.
+      if (!this.glarePrerender) {
+        // Create glare element
+        const jsTiltGlare = document.createElement("div");
+        jsTiltGlare.classList.add("js-tilt-glare");
+  
+        const jsTiltGlareInner = document.createElement("div");
+        jsTiltGlareInner.classList.add("js-tilt-glare-inner");
+  
+        jsTiltGlare.appendChild(jsTiltGlareInner);
+        this.element.appendChild(jsTiltGlare);
+      }
+  
+      this.glareElementWrapper = this.element.querySelector(".js-tilt-glare");
+      this.glareElement = this.element.querySelector(".js-tilt-glare-inner");
+  
+      if (this.glarePrerender) {
+        return;
+      }
+  
+      Object.assign(this.glareElementWrapper.style, {
+        "position": "absolute",
+        "top": "0",
+        "left": "0",
+        "width": "100%",
+        "height": "100%",
+        "overflow": "hidden",
+        "pointer-events": "none",
+        "border-radius": "inherit"
+      });
+  
+ 
+  
