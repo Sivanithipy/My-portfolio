@@ -18,6 +18,8 @@ $(document).ready(function () {
     }
   });
 });
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const textElement = document.getElementById('typewriter-text');
   const words = ['Edwin Joel J', 'a Web Developer', 'a Student', 'a Coder'];
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   typeWriter(); // Initialize the typewriter effect
 });
+
 document.addEventListener('DOMContentLoaded', function () {
   // Your existing code for smooth scroll and navbar toggle
 
@@ -77,5 +80,3 @@ document.addEventListener('DOMContentLoaded', function () {
       "max-glare": 0.1,
   });
 });
-
-

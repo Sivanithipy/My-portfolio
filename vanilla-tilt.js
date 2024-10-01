@@ -340,6 +340,7 @@ var VanillaTilt = (function () {
         "pointer-events": "none",
         "border-radius": "inherit"
       });
+  
       Object.assign(this.glareElement.style, {
         "position": "absolute",
         "top": "50%",
@@ -498,5 +499,4 @@ var VanillaTilt = (function () {
   return VanillaTilt;
   
   }());
- 
   
