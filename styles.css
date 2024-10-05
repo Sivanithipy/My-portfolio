@@ -11,6 +11,7 @@ img {
     width: 150px;
 }
 
+
 a {
     color: #007bff; /* Professional link color */
 }
@@ -30,6 +31,8 @@ a {
 .navbar-toggler {
     margin-bottom: 20px;
 }
+
+
 
 #nav_name {
     color: white;
@@ -95,6 +98,8 @@ a {
     animation: none; /* Removed animation for a cleaner look */
 }
 
+
+
 /* Text styling */
 #hithere {
     font-size: 50px;
@@ -155,7 +160,7 @@ a {
 
 #about .about-content {
     max-width: 600px; /* Limiting width for better readability */
-    line-height: 1.7;
+    line-height: 2.7;
     font-size: 1.1rem;
     color: #555;
 }
