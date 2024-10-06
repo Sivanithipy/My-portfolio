@@ -8,6 +8,13 @@ function smoothScroll(targetId, event) {
           top: targetElement.offsetTop - 100, // Adjust the offset as needed
           behavior: 'smooth'
       });
+      function smoothScroll(targetId, event) {
+        event.preventDefault();
+        document.getElementById(targetId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+    
   }
 }
 
@@ -22,7 +29,7 @@ $(document).ready(function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const textElement = document.getElementById('typewriter-text');
-  const words = ['Edwin Joel J', 'a Web Developer', 'a Student', 'a Coder'];
+  const words = ['Sivanithi P Y', 'a Web Developer', 'a Student', 'a Coder'];
 
   function typeWriter() {
     let wordIndex = 0;
