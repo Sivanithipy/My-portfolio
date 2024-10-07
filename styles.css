@@ -240,7 +240,7 @@ a {
 
 /* Skills and Projects Section */
 #skills,
-#projects {
+.project-box  {
     background: #fff; /* White background */
     padding-top: 50px;
     padding-bottom: 50px;
