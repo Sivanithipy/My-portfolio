@@ -4,35 +4,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
 /*-------------------------------------*/
-
-
 img {
     width: 150px;
 }
 
-
 a {
-    color: #007bff; /* Professional link color */
+    color: #007bff;
 }
 
 #ruler {
     margin-top: 60px;
     width: 1000px;
-    border: 1px solid #ddd; /* Light grey border */
+    border: 1px solid #ddd;
 }
 
 /*-----------------------------------------------------------*/
 .navbar {
-    background-image: linear-gradient(to right, #354f70, #446b8b); /* Subtle dark blue gradient */
+    background-image: linear-gradient(to right, #354f70, #446b8b);
     height: 70px;
 }
 
 .navbar-toggler {
     margin-bottom: 20px;
 }
-
-
 
 #nav_name {
     color: white;
@@ -45,7 +41,7 @@ a {
 
 #nav_name:hover {
     text-decoration: none;
-    color: #e1e8f0; /* Lighter hover effect */
+    color: #e1e8f0;
 }
 
 #navbarNav {
@@ -64,7 +60,7 @@ a {
 }
 
 .navbar-nav .nav-link {
-    color: #f8f9fa; /* Slightly lighter text color */
+    color: #f8f9fa;
 }
 
 .navbar-nav .nav-link::before {
@@ -74,7 +70,7 @@ a {
     height: 2px;
     bottom: 0;
     left: 2%;
-    background-color: #ffd700; /* Soft yellow underline */
+    background-color: #ffd700;
     transform: scaleX(0);
     transition: transform 0.5s ease;
 }
@@ -83,7 +79,7 @@ a {
     transform: scaleX(1);
 }
 
-#education {
+#education, #work-experience, #projects {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -91,9 +87,9 @@ a {
     padding: 20px;
 }
 
-.education-card {
-    width: 250px; /* Adjust card width if needed */
-    margin-bottom: 10px; /* Space between the cards */
+.education-card, .work-card, .project-card {
+    width: 250px;
+    margin-bottom: 10px;
 }
 
 .card {
@@ -106,40 +102,34 @@ a {
 }
 
 .card img {
-    height: 50px; /* Smaller image size */
+    height: 50px;
     width: 50%;
     object-fit: cover;
 }
 
-
-/* Change background to white */
 #intro {
     margin-top: 100px;
-    background-color: #fff; /* White background */
+    background-color: #fff;
     border-radius: 30px;
     height: 700px;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(to top, #e1e8f0 0%, #f9f9fb 100%); /* Subtle gradient */
+    background-image: linear-gradient(to top, #e1e8f0 0%, #f9f9fb 100%);
     background-size: 600% 600%;
-    animation: none; /* Removed animation for a cleaner look */
+    animation: none;
 }
 
-
-
-/* Text styling */
 #hithere {
     font-size: 50px;
     font-family: Montserrat;
     padding-top: 100px;
     padding-bottom: 50px;
     font-weight: bold;
-    color: #354f70; /* Dark blue for a professional tone */
-    text-shadow: none; /* Removed shadow for cleaner text */
+    color: #354f70;
+    text-shadow: none;
 }
 
-/* Typewriter effect */
 .typewriter_name_out {
     font-family: 'Protest Strike', sans-serif;
     font-size: 70px;
@@ -153,7 +143,6 @@ a {
     color: #446b8b;
 }
 
-/* Social buttons */
 #social_buttons_div {
     padding-top: 50px;
 }
@@ -162,12 +151,9 @@ a {
     border-radius: 50%;
 }
 
-/* About me button styling */
-/* About Me Section Styles */
-/* About Me Section Styles */
 #about {
-    background-color: #f9f9f9; /* Soft background color for a clean look */
-    padding: 60px 0; /* Generous padding for better spacing */
+    background-color: #f9f9f9;
+    padding: 60px 0;
 }
 
 #about h1 {
@@ -182,12 +168,12 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Ensures responsiveness */
+    flex-wrap: wrap;
     gap: 40px;
 }
 
 #about .about-content {
-    max-width: 600px; /* Limiting width for better readability */
+    max-width: 600px;
     line-height: 2.7;
     font-size: 1.1rem;
     color: #555;
@@ -205,7 +191,7 @@ a {
     border-radius: 50%;
     width: 180px;
     height: 180px;
-    border: 4px solid #ddd; /* Clean border for a polished look */
+    border: 4px solid #ddd;
 }
 
 #about .about-buttons {
@@ -219,35 +205,31 @@ a {
     margin: 10px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff; /* Button color */
+    background-color: #007bff;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
 }
 
 #about .about-buttons a:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
 }
 
-
-/* Section titles */
 .section_titles {
     font-family: 'Merriweather', serif;
     font-weight: bold;
     font-size: 50px;
-    color: #354f70; /* Dark blue */
+    color: #354f70;
 }
 
-/* Skills and Projects Section */
-#skills,
-.project-box  {
-    background: #fff; /* White background */
+#skills, .project-box {
+    background: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
 .yellow-heading {
-    color: #354f70; /* Changed to dark blue for consistency */
+    color: #354f70;
 }
 
 .skill-image {
@@ -267,7 +249,6 @@ a {
     font-weight: bold;
 }
 
-/* Footer */
 .footer-links {
     color: #354f70 !important;
     transition: color 0.3s ease !important;
@@ -275,14 +256,13 @@ a {
 }
 
 .footer-links:hover {
-    color: #ffd700 !important; /* Soft yellow hover effect */
+    color: #ffd700 !important;
 }
 
-/* Card effects */
 #card_stj, #card_vcet {
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    box-shadow: 0px 0px 20px rgba(87, 78, 78, 0.1); /* Softer shadow */
+    box-shadow: 0px 0px 20px rgba(87, 78, 78, 0.1);
 }
 
 #card_stj:hover, #card_vcet:hover {
@@ -294,9 +274,34 @@ a {
     transform: translateZ(50px);
 }
 
-/* Body background */
 body {
-    background-color: #f9f9fb; /* Light background for better readability */
+    background-color: #f9f9fb;
 }
 
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
 
+.skills-list li {
+    background-color: #f0f4f7;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    background-color: #e2eaf0;
+}
+
+.skills-list span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #354f70;
+}
