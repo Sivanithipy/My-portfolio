@@ -5,40 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sivanithi - Portfolio</title>
     <script type="text/javascript" src="vanilla-tilt.js"></script>
-    <!-- Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- Font Awesome CSS link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- Your custom CSS file -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Smooth scroll script -->
-    <script>
-        function smoothScroll(targetId, event) {
-            event.preventDefault();
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </head>
 <body>
     <div class="container-fluid">
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <h3 class="navbar-brand" id="nav_name">Sivanithi P Y</h3>
-            <!-- Add a responsive button for small screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -51,39 +29,38 @@
                         <a class="nav-link" href="#" onclick="smoothScroll('skills', event)">Skills</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="smoothScroll('work-experience', event)">Experience</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="smoothScroll('education', event)">Education</a>
                     </li>
-                   
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="smoothScroll('contact', event)">Project/Contact</a>
+                        <a class="nav-link" href="#" onclick="smoothScroll('projects', event)">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="smoothScroll('contact', event)">Contact</a>
                     </li>
                 </ul>
-             </div>
+            </div>
         </nav>
 
-        <!-- Introduction Section -->
         <section id="intro" class="d-flex justify-content-center mt-5 pt-5">
             <div class="row mt-3">
                 <div class="col-md text-center">
                     <h3 id="hithere">Hey There!</h3>
-                    <div class="typewriter-container">
-                        <h1 class="typewriter_name_out">I am <span id="typewriter-text"></span>Sivanithi P Y</h1>
-                    </div>
-                    <!-- Social Media Buttons -->
-                    <div class="about_me_button_div">
-                        <button class="btn about_me_button" onclick="smoothScroll('about', event)">About Me</button>
-                    </div>
+                  
+                    
                     <div class="social-buttons mt-5" id="social_buttons_div">
                         <a href="https://www.instagram.com" target="_blank" class="btn btn-primary mr-2"><i class="fab fa-instagram"></i></a>
                         <a href="mailto:sivanithipys@gmail.com" class="btn btn-danger mr-2"><i class="far fa-envelope"></i></a>
                         <a href="https://github.com/Sivanithipy" target="_blank" class="btn btn-dark mr-2"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/sivanithi-p-y-79441928b/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i></a>
+                        <a href="tel:+917806884559" class="btn btn-info mr-2"><i class="fas fa-phone"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-5">
             <div class="container-fluid">
                 <div class="col-md-12">
@@ -92,14 +69,15 @@
                 <div class="row gt-3 mt-5">
                     <div class="col-md-10 offset-md-1" align="center">
                         <h3>I'm Sivanithi P Y</h3>
-                        <img src="Images/istockphoto.jpg" alt="Corner Image" class="corner-image">
-                        <h6>Student</h6>
-                        <p class="mt-5" id="aboutme_content">I'm pursuing my B.Tech degree in Information Technology at Velammal College of Engineering and Technology. I am an enthusiastic and creative problem solver with a strong desire to master new technologies and create ground-breaking solutions. Talented in transforming complex challenges into opportunities for creative growth and impactful results. Eager to contribute my skills and creativity in a dynamic and forward-thinking company.</p>
+                        <img src="istockphoto.jpg" alt="Corner Image" class="corner-image">
+                        <h6>Software Developer</h6>
+                        <p class="mt-5" id="aboutme_content">To secure a challenging position in a reputable organization where I can apply my knowledge in Information Technology, continuously learn, and contribute to the success of innovative projects while enhancing my skills in software development.</p>
                         <div id="aboutme_contact_details">
                             <p>Email: sivanithipys@gmail.com</p>
+                            <p>Phone: +91 7806884559</p>
                             <p>Paramakudi, Tamil Nadu</p>
                             <div class="download_button_div text-center">
-                                <a href="Files/My Resume (1).pdf" target="_blank"><button class="btn about_me_button">Resume</button></a>
+                                <a href="Resume - Sivanithi P Y.pdf" target="_blank"><button class="btn about_me_button">Resume</button></a>
                             </div>
                         </div>
                     </div>
@@ -107,75 +85,117 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-5">
-            <div class="container text-center">
-                <h1 class="section_titles"><i class="fas fa-laptop-code"></i> Skills</h1>
-                <div class="row justify-content-center">
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_java.svg" class="card-img img-fluid skill-image shaking-image" alt="Java">
-                        <p>Java</p>
+        <section id="work-experience" class="py-5">
+            <div class="container">
+                <h1 class="section_titles text-center"><i class="fas fa-briefcase"></i> Work Experience</h1>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-5 mb-3 work-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Vreendar IT Solution</h5>
+                                <p class="card-text text-muted">Online Internship - 2023</p>
+                                <p class="card-text">Learned Python fundamentals and basic AI concepts like rule-based logic. Gained hands-on experience with functions, control flow, and file handling.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_c.svg" class="card-img img-fluid skill-image shaking-image" alt="C">
-                        <p>C</p>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_bootstrap.svg" class="card-img img-fluid skill-image shaking-image" alt="Bootstrap">
-                        <p>Bootstrap</p>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_html.svg" class="card-img img-fluid skill-image shaking-image" alt="HTML">
-                        <p>HTML</p>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_css.svg" class="card-img img-fluid skill-image shaking-image" alt="CSS">
-                        <p>CSS</p>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <img src="Images/SVG/svg_js.svg" class="card-img img-fluid skill-image shaking-image" alt="JavaScript">
-                        <p>JavaScript</p>
+                    <div class="col-md-5 mb-3 work-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Kevell Corp</h5>
+                                <p class="card-text text-muted">Flutter Development Internship | Madurai, India | 2023 - 2024</p>
+                                <p class="card-text">Built an e-commerce frontend UI using Flutter and Dart. Learned widget trees, layout design, and state management basics.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
+          <section id="skills" class="py-5">
+            <div class="container text-center">
+                <h1 class="section_titles"><i class="fas fa-laptop-code"></i> Skills</h1>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-4 mb-3 skill-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Java</h5>
+                                <h5 class="card-title">React.js</h5>
+                                <h5 class="card-title">Spring Boot</h5>
+                                <h5 class="card-title">Bootstrap</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 skill-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">PostgreSQL</h5>
+                                <h5 class="card-title">SQL</h5>
+                                <h5 class="card-title">REST APIs</h5>
+                                <h5 class="card-title">Git</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="education" class="py-5">
             <div class="container-fluid">
                 <h1 class="section_titles text-center"><i class="fas fa-graduation-cap"></i> Education</h1>
                 <div class="row mt-5 justify-content-between">
                     <div class="col-md-5 mb-3 education-card">
                         <div class="card">
-                            <img src="Images/JPEG/kurinji.avif" class="card-img-top" alt="School Image">
                             <div class="card-body text-center">
-                                <h5 class="card-title">KMHSS - Computer Science</h5>
-                                <p class="card-text">Kurinji Matriculation Higher Secondary School, Namakkal.</p>
+                                <h5 class="card-title">12th - Kurinji Matriculation Higher Secondary School</h5>
+                                <p class="card-text">Percentage: 86.83%</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5 mb-3 education-card">
                         <div class="card">
-                            <img src="Images/JPEG/jpeg_vcet.jpg" class="card-img-top" alt="College Image">
                             <div class="card-body text-center">
                                 <h5 class="card-title">B.Tech. Information Technology</h5>
-                                <p class="card-text">Velammal College of Engineering and Technology, Viraganoor, Madurai-625 009</p>
+                                <p class="card-text">Velammal College of Engineering and Technology</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="col-md-4 align-items-center d-flex flex-nowrap justify-content-center">
-        <div class="project-box">
-            <h3>📘 Project</h3>
-            <h4>Food Adulteration Detection using Hyperspectral Imaging in Okra</h4>
-            <p>Utilized hyperspectral imaging and machine learning to detect adulteration in okra samples with high accuracy. This approach enhances food quality analysis by capturing spectral data across diverse wavelengths.</p>
-        </div>
-        </div>
 
-         <!-- Contact Section -->
-         <footer id="contact" class="py-4 bg-dark text-white caro mt-5">
+        <section id="projects" class="py-5">
+            <div class="container-fluid">
+                <h1 class="section_titles text-center"><i class="fas fa-folder-open"></i> Projects</h1>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-5 mb-3 project-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Food Adulteration Detection Using Hyperspectral Imaging</h5>
+                                <p class="card-text">Developed a machine learning model to detect adulteration in okra samples using hyperspectral imaging data. Implemented and trained a 3D Convolutional Neural Network (CNN) in Python using TensorFlow and Keras to classify adulterated and non-adulterated samples.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3 project-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Movie Review and Rating System</h5>
+                                <p class="card-text">Built a full-stack movie review platform with user ratings, a watchlist, and real-time search. The project includes a custom rating system and integrated JWT-based authentication. The tech stack used was React.js, Spring Boot, PostgreSQL, and Spring Security.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-3 project-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">To-Do List Web Application</h5>
+                                <p class="card-text">Created a user-friendly to-do list application for task management. Users can add, edit, and delete tasks dynamically. The app utilizes local storage for data persistence, ensuring tasks are saved even after the browser is closed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="py-4 bg-dark text-white caro mt-5">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4 align-items-center d-flex flex-nowrap justify-content-center">
@@ -185,37 +205,38 @@
                         <h3 class="mb-3 mt-5">Connect with Me</h3>
                         <ul class="list-unstyled">
                             <li><a href="https://www.linkedin.com/in/sivanithi-p-y-79441928b/" target="_blank" class="text-white footer-links"><i
-                                        class="fab fa-linkedin"></i>&nbsp&nbspLinkedIn</a></li>
-                            <li><a href="https://github.com/Sivanithipy/nythi" target="_blank" class="text-white footer-links"><i
-                                        class="fab fa-github"></i>&nbsp&nbspGitHub</a></li>
-                            <li><a href="https://www.instagram.com" target="_blank" class="text-white footer-links"><i
-                                        class="fab fa-instagram"></i>&nbsp&nbspInstagram</a></li>
+                                            class="fab fa-linkedin"></i>&nbsp;&nbsp;LinkedIn</a></li>
+                            <li><a href="https://github.com/Sivanithipy" target="_blank" class="text-white footer-links"><i
+                                            class="fab fa-github"></i>&nbsp;&nbsp;GitHub</a></li>
+                            <li><a href="https://www.instagram.com/she._isshi/" target="_blank" class="text-white footer-links"><i
+                                            class="fab fa-instagram"></i>&nbsp;&nbsp;Instagram</a></li>
                             <li><a href="mailto:sivanithipys@gmail.com" target="_blank" class="text-white footer-links"><i
-                                        class="far fa-envelope"></i>&nbsp&nbspMail</a></li>
+                                            class="far fa-envelope"></i>&nbsp;&nbsp;Mail</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 d-flex flex-wrap justify-content-center align-items-center flex-column">
                         <h3 class="mb-3 mt-5">Contact Me</h3>
-                        <p>
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <a href="mailto:sivanithipys.com"
-                                class="footer-links">&nbsp&nbspsivanithipys@gmail.com</a>
-                        </p>
-                        <p>
-                            <i class="fas fa-map-marker-alt"></i>
-                            &nbsp&nbspIndia, Tamilnadu, Paramakudi-623 707.
-                        </p>
-                    </div>
-                    <hr id="ruler">
-                    <div class="col-md-12 text-white" align="center">
-                        <p>Designed by Sivanithi P Y</p>
+                        <p><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7806884559</p>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;<a href="mailto:sivanithipys@gmail.com"
+                                class="footer-links">sivanithipys@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;India, Tamilnadu, Paramakudi-623 707.</p>
                     </div>
                 </div>
+                <hr id="ruler">
+                <div class="col-md-12 text-white" align="center">
+                    <p>Designed by Sivanithi P Y</p>
+                </div>
             </div>
-            
         </footer>
-
-        
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function smoothScroll(targetId, event) {
+            event.preventDefault();
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
-</html>  
+</html>
